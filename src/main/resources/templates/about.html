@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Об авторе</title>
+    <style>
+        /* Основные стили страницы */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        /* Анимация фона */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Контейнер формы */
+        .centered-form {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 600px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Заголовок */
+        .centered-header {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Поля ввода */
+        .auth-form input[type="text"],
+        .auth-form input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+            transition: box-shadow 0.3s, background 0.3s;
+        }
+
+        .auth-form input:focus {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Кнопка */
+        .auth-form button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #1d2671, #c33764);
+            background-size: 400% 400%;
+            animation: buttonAnimation 10s ease infinite;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        /* Анимация кнопки */
+        @keyframes buttonAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .auth-form button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Ссылка */
+        .auth-form a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .auth-form a:hover {
+            opacity: 1;
+        }
+
+        /* Сообщение об ошибке */
+        .error-message {
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #ff6b6b;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="centered-form">
+    <h1 class="centered-header">Об авторе</h1>
+    <label>Ерхан Михаил Ионович</label>
+    <label>Учебная группа Пи22-1в</label>
+    <label> <br>
+        В процессе выполнения проекта были использованы современные технологии, обеспечивающие разработку надёжной и функциональной информационно-справочной системы: <br>
+        <br>
+        1. Java и Spring Boot <br>
+        - Реализация серверной части проекта с использованием Spring Boot. <br>
+        - Настройка REST API для взаимодействия клиента и сервера. <br>
+        - Организация работы с базой данных через ORM (Hibernate). <br> <br>
+        2. Базы данных <br>
+        - Проектирование структуры базы данных для хранения информации о клиентах, запчастях и заказах. <br>
+        - Создание SQL-запросов для выборки и обработки данных. <br>
+        - Интеграция базы данных с серверной частью приложения. <br> <br>
+        3. HTML, CSS, JavaScript <br>
+        - Разработка пользовательского интерфейса с использованием адаптивной верстки и современных CSS-фреймворков (Bootstrap). <br>
+        - Добавление интерактивных элементов через JavaScript и AJAX для повышения удобства взаимодействия с системой. <br>
+        - Работа с формами и модальными окнами для обработки данных. <br>
+        <br>
+        Этот опыт позволил не только освоить указанные технологии, но и получить практические навыки проектирования клиент-серверных приложений, работы с базами данных и создания удобного веб-интерфейса. <br>
+    </label>
+    <br>
+    <label>Сроки выполнения работы:</label>
+    <label>02.10.2024 - 07.12.2024</label>
+    <br>
+    <form class="auth-form">
+        <a href="/index">На главную</a>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .user-info {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .user-info .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            background-size: 400% 400%;
+            animation: avatarGradientAnimation 5s ease infinite;
+            margin-right: 10px;
+        }
+
+        .usernametext {
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .user-info a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            margin-left: 15px;
+        }
+
+        .user-info a:hover {
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-top: 80px;
+            font-weight: bold;
+            z-index: 50;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 100px;
+            width: 80%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            width: 300px;
+            margin: 20px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: cardSlideIn 1s forwards;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .card h2 {
+            font-size: 22px;
+            margin: 15px 0;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        @keyframes avatarGradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes cardSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                width: 90%;
+            }
+
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="user-info">
+    <div class="avatar"></div>
+    <span class="usernametext" th:text="${username}"></span>
+    <a href="/logout"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+</div>
+
+<h1>Добро пожаловать в систему</h1>
+
+<div class="main-content">
+    <div class="card-container">
+        <div class="card" id="cargo-card">
+            <a href="/cargolist">
+                <img src="/images/cargoimage.webp" alt="Список грузов">
+                <h2>Управление запчастями</h2>
+            </a>
+        </div>
+        <div class="card" id="blog-card">
+            <a href="/blog/">
+                <img src="/images/blogimage.webp" alt="Автоблог">
+                <h2>Планирование ремонта</h2>
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -133,6 +133,42 @@
         .modal-content button:hover {
             background-color: #c33764;
         }
+        .user-info {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .user-info .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            background-size: 400% 400%;
+            animation: avatarGradientAnimation 5s ease infinite;
+            margin-right: 10px;
+        }
+
+        .usernametext {
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .user-info a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            margin-left: 15px;
+        }
+
+        .user-info a:hover {
+            opacity: 0.8;
+        }
     </style>
 
     <script>
@@ -183,6 +219,11 @@
         <a href="/clients/clients">Панель управления клиентами</a>
         <a href="/about">Об авторе</a>
     </nav>
+    <div class="user-info" th:if="${username}">
+        <div class="avatar"></div>
+        <span class="usernametext" th:text="${username}"></span>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+    </div>
 </header>
 
 <h1>Административная панель управления запчастями</h1>

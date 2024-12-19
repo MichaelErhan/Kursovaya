@@ -10,4 +10,7 @@ public class ErrorController {
     public String accessDenied() {
         return "error/403"; // Указываем путь к файлу templates/error/403.html
     }
+
+    @GetMapping("/error/404")
+    public String notFound() { return "error/404"; }
 }
